@@ -1,2 +1,3 @@
-# spur_app_2
-Spur App 2, used with second version portal
+# spur_app
+Spur Bridge App
+Connects to Spur buttons and the Spur cloud client.
