@@ -5,6 +5,8 @@ Copyright (c) 2015 ContinuumBridge Limited
 """
 
 import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 import time
 import json
 import pickle
@@ -210,7 +212,10 @@ class App(CbApp):
             elif m == "app_value":
                 formatMessage = struct.pack("cB", "A", self.nodeConfig[nodeAddr][m])
             if aMessage:
-                lines = self.nodeConfig[nodeAddr][m].split("\n")
+                self.cbLog("debug", "sendConfig, aMessage")
+                display = base64.b64decode(self.nodeConfig[nodeAddr][m])
+                self.cbLog("debug", "sendConfig, display: {}".format(display))
+                lines = display.split("\n")
                 firstSplit = None 
                 numLines = len(lines)
                 for l in lines:
